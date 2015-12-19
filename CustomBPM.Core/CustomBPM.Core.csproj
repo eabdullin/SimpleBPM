@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B37FD5B-2E28-4983-9CA2-98132719C143}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomBPM.Core</RootNamespace>
+    <AssemblyName>CustomBPM.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\BpmConfigurationSection.cs" />
+    <Compile Include="Configuration\BpmConstants.cs" />
+    <Compile Include="Configuration\ProcessElement.cs" />
+    <Compile Include="DataModel\ActivityInstance.cs" />
+    <Compile Include="DataModel\ProcessInstance.cs" />
+    <Compile Include="DataModel\ProcessInstanceField.cs" />
+    <Compile Include="DataModel\ProcessStatus.cs" />
+    <Compile Include="Exceptions\GoToStepException.cs" />
+    <Compile Include="Exceptions\ProcessAlreadyInStepException.cs" />
+    <Compile Include="Exceptions\ProcessNotFoundException.cs" />
+    <Compile Include="Exceptions\StepNotFoundException.cs" />
+    <Compile Include="Extension\ParameterExtension.cs" />
+    <Compile Include="Interfaces\IAction.cs" />
+    <Compile Include="Interfaces\ICondition.cs" />
+    <Compile Include="Interfaces\IMetadataProvider.cs" />
+    <Compile Include="Interfaces\IProcessActionProvider.cs" />
+    <Compile Include="Interfaces\IProcessProvider.cs" />
+    <Compile Include="Interfaces\Repositories\IAcivityInstanceRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProcessInstanceFieldsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProcessInstanceRepository.cs" />
+    <Compile Include="MetaData\Activity.cs" />
+    <Compile Include="MetaData\ActivityAction.cs" />
+    <Compile Include="MetaData\ActivityCondition.cs" />
+    <Compile Include="MetaData\ActivityLink.cs" />
+    <Compile Include="MetaData\ActivityProperty.cs" />
+    <Compile Include="MetaData\Condition.cs" />
+    <Compile Include="MetaData\Process.cs" />
+    <Compile Include="MetaData\ProcessField.cs" />
+    <Compile Include="MetaData\XmlMetadataProvider.cs" />
+    <Compile Include="ProcessActions\Interfaces\IActionFactory.cs" />
+    <Compile Include="ProcessActions\Interfaces\IConditionFactory.cs" />
+    <Compile Include="ProcessActions\ProcessActionProvider.cs" />
+    <Compile Include="ProcessProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dal.Core\Dal.Core.csproj">
+      <Project>{205C9451-1B9F-4F1E-8019-4158446D20A8}</Project>
+      <Name>Dal.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

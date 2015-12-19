@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45C26E4B-AF73-4969-AD81-CD3DCF8FF696}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomBPM</RootNamespace>
+    <AssemblyName>CustomBPM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ClearCarSelectionAction.cs" />
+    <Compile Include="Actions\ClearCheckedFlags.cs" />
+    <Compile Include="Actions\ClearReviewResultAction.cs" />
+    <Compile Include="Actions\ClientLeadUpdate.cs" />
+    <Compile Include="Actions\CreateReviewAgreementAction.cs" />
+    <Compile Include="Actions\DeleteReserveAction.cs" />
+    <Compile Include="Actions\DeleteReviewAgreementsAction.cs" />
+    <Compile Include="Actions\DeleteVirrualCarAction.cs" />
+    <Compile Include="Actions\FinishAction.cs" />
+    <Compile Include="Actions\LogAction.cs" />
+    <Compile Include="Actions\SuccessAction.cs" />
+    <Compile Include="Actions\ToIssueChangeCarStatusAction.cs" />
+    <Compile Include="Attributes\CodeAttribute.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Conditions\ReviewResultCondition.cs" />
+    <Compile Include="Conditions\TestCondition.cs" />
+    <Compile Include="Conditions\ToApprovalCondition.cs" />
+    <Compile Include="Conditions\ToArchiveCondition.cs" />
+    <Compile Include="Conditions\ToIncomeCondition.cs" />
+    <Compile Include="Conditions\ToInJobCondition.cs" />
+    <Compile Include="Conditions\ToInJobFromApprovalOrToIncomeCondition.cs" />
+    <Compile Include="Conditions\ToInJobFromReserveOrToIssueCondition.cs" />
+    <Compile Include="Conditions\ToIssueCondition.cs" />
+    <Compile Include="Conditions\ToReserveCondition.cs" />
+    <Compile Include="Conditions\ToSuccessCondition.cs" />
+    <Compile Include="DefaultMetadataProvider.cs" />
+    <Compile Include="FactoryHelper.cs" />
+    <Compile Include="Implementation\ActionFactory.cs" />
+    <Compile Include="Implementation\ConditionFactory.cs" />
+    <Compile Include="LocalProcessManager.cs" />
+    <Compile Include="ProcessConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BPM.Common\BPM.Common.csproj">
+      <Project>{90386939-F8ED-482D-B245-044C1E0736CF}</Project>
+      <Name>BPM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomBPM.Core\CustomBPM.Core.csproj">
+      <Project>{5B37FD5B-2E28-4983-9CA2-98132719C143}</Project>
+      <Name>CustomBPM.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
